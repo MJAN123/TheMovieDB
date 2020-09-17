@@ -1,15 +1,7 @@
 import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import {
-  AppBar,
-  Grid,
-  Toolbar,
-  Typography,
-  Button,
-  Box,
-} from "@material-ui/core";
+import { AppBar, Grid, Toolbar, Button } from "@material-ui/core";
 import { Colors } from "../../constants/Color.js";
-import { Search } from "@material-ui/icons";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -61,7 +53,7 @@ const Header = () => {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar variant="dense" disableGutters className={classes.toolbar}>
           <Grid
             container
@@ -71,18 +63,15 @@ const Header = () => {
           >
             <Grid container item xs={6}>
               <Grid item xs={6}>
-                <Box>
-                  <img
-                    className={classes.logo}
-                    src={require("../../assets/Logo/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg")}
-                    alt="Logo"
-                  />
-                </Box>
-                <Box>
-                  <Button color="inherit">Movies</Button>
-                  {/* <Button color="inherit">TV Shows</Button>
-                  <Button color="inherit">Peoples</Button> */}
-                </Box>
+                <img
+                  className={classes.logo}
+                  src={require("../../assets/Logo/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg")}
+                  alt="Logo"
+                />
+
+                <Button color="inherit">Movies</Button>
+                <Button color="inherit">TV Shows</Button>
+                <Button color="inherit">Peoples</Button>
               </Grid>
             </Grid>
             <Grid item xs={6}>

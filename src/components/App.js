@@ -1,8 +1,6 @@
-import { RecentActors } from "@material-ui/icons";
 import React from "react";
 import Header from "./Header";
-import Footer from "../components/Footer";
-
+import MovieList from "../components/MoviesList";
 const App = () => {
   return (
     <React.Fragment>
@@ -10,7 +8,7 @@ const App = () => {
         <Header />
       </header>
       <footer>
-        <Footer />
+        <MovieList />
       </footer>
     </React.Fragment>
   );
