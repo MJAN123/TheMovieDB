@@ -1,0 +1,27 @@
+.footer {
+  height: 30vh;
+  background-color: #0d253f;
+  position: relative;
+}
+
+.logo-box {
+  width: 10%;
+  position: absolute;
+  left: 20%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu {
+  color: #fff;
+  list-style: none;
+  position: absolute;
+  left: 40%;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+li {
+  display: inline;
+  margin: 10px;
+}

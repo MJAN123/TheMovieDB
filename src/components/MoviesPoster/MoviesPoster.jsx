@@ -3,11 +3,19 @@ import "./style.css";
 import { ImageBaseUrl } from "../../constants/ImagesURl";
 
 const MoviesPoster = (props) => {
-  const { movies } = props;
-  console.log("From POster", movies);
+  const { movies, movieDetail } = props;
+
+  const moviesClicked = (movie) => {
+    console.log("Dispatching Movie Detail Action", movieDetail(movie));
+    movieDetail(movie);
+  };
   return (
     <div className="card">
-      <img src={ImageBaseUrl + movies.poster_path} alt={movies.title} />
+      <img
+        src={ImageBaseUrl + movies.poster_path}
+        alt={movies.title}
+        onClick={() => moviesClicked(movies)}
+      />
       <div className=" container">
         <h4>
           <b>{movies.title}</b>

@@ -1,14 +1,15 @@
-import { take, call, put, spawn } from "redux-saga/effects";
-import FetchMoviesAction from "../Actions";
+import { all, call, put, takeEvery } from "redux-saga/effects";
+import { FetchMoviesSuccessAction } from "../Actions";
+import { TYPE } from "../../constants/ActionType";
 import getMovies from "../../api";
 function* fetchMovies() {
   const res = yield call(getMovies);
   console.log("Getting Response From Api In Saga", res);
-  yield put(FetchMoviesAction(res));
+  debugger;
+  yield put(FetchMoviesSuccessAction(res));
 }
 
 export function* rootSaga() {
   console.log("From Root Saga");
-  yield take("FETCH_MOVIES");
-  yield spawn(fetchMovies);
+  yield all([takeEvery(TYPE.FETCH_MOVIES, fetchMovies)]);
 }

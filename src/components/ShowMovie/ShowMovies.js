@@ -1,5 +1,6 @@
 import React from "react";
 import MoviesPoster from "../MoviesPoster";
+import MoviesDetail from "../MovieDetail";
 import { Grid } from "@material-ui/core";
 
 const ShowMovies = (props) => {
@@ -16,6 +17,7 @@ const ShowMovies = (props) => {
         </React.Fragment>
       );
     });
+
   return (
     <div>
       <Grid container spacing={3}>

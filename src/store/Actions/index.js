@@ -1,4 +1,2 @@
-import FetchMoviesReducer from "../Reducers/FetchMoviesReducer";
-import { FetchMoviesAction } from "./FetchMoviesAction";
-
-export default FetchMoviesAction;
+export * from "./FetchMoviesAction";
+export * from "./MovieDetailAction";

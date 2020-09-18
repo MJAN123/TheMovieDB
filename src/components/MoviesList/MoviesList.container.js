@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import FetchMoviesAction from "../../store/Actions";
+import { FetchMoviesAction } from "../../store/Actions";
 import MoviesList from "./MovieList";
 
 const mapDispatchToProps = (dispatch) => {
@@ -7,9 +7,10 @@ const mapDispatchToProps = (dispatch) => {
     fetchMovies: () => dispatch(FetchMoviesAction()),
   };
 };
-const mapStateToProps = ({ moviesList }) => {
+const mapStateToProps = ({ moviesList, movieDetail }) => {
   return {
     moviesList,
+    movieDetail,
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);

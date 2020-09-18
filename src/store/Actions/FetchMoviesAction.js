@@ -1,6 +1,14 @@
-export const FetchMoviesAction = (movies) => {
+import { TYPE } from "../../constants/ActionType";
+
+export const FetchMoviesAction = () => {
   return {
-    type: "FETCH_MOVIES",
+    type: TYPE.FETCH_MOVIES,
+  };
+};
+
+export const FetchMoviesSuccessAction = (movies) => {
+  return {
+    type: TYPE.FETCH_SUCCESS_MOVIES,
     payload: movies,
   };
 };
