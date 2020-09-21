@@ -1,0 +1,14 @@
+input {
+  width: 90%;
+  height: 50px;
+  text-align: center;
+  color: black;
+  font-size: 24px;
+  outline: olivedrab;
+}
+
+.search {
+  text-align: center;
+  margin-top: 90px;
+  height: 95vh;
+}

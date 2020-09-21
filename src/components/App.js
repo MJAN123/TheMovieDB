@@ -1,15 +1,42 @@
 import React from "react";
 import Header from "./Header";
 import MovieList from "../components/MoviesList";
+import Trending from "../components/Trending";
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import TVShows from "../components/TVShows";
+import People from "../components/People";
+import Upcomming from "../components/Upcomming";
+import MovieDetail from "../components/MovieDetail";
+import Footer from "../components/Footer";
+import Search from "../components/Search";
 const App = () => {
   return (
     <React.Fragment>
-      <header>
+      <BrowserRouter>
         <Header />
-      </header>
-      <footer>
-        <MovieList />
-      </footer>
+        <Route path="/" exact>
+          <MovieList />
+        </Route>
+        <Route path="/upcomming">
+          <Upcomming />
+        </Route>
+        <Route path="/trending">
+          <Trending />
+        </Route>
+        <Route path="/tvshows">
+          <TVShows />
+        </Route>
+        <Route path="/people">
+          <People />
+        </Route>
+        <Route path="/detail">
+          <MovieDetail />
+        </Route>
+        <Route path="/search">
+          <Search />
+        </Route>
+        <Footer />
+      </BrowserRouter>
     </React.Fragment>
   );
 };

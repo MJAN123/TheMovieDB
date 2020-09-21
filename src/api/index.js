@@ -1,3 +1,3 @@
-import getMovies from "./tmdb";
+import { fromJS } from "immutable";
 
-export default getMovies;
+export * from "./tmdb";

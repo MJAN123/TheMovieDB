@@ -2,9 +2,14 @@ import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { AppBar, Grid, Toolbar, Button } from "@material-ui/core";
 import { Colors } from "../../constants/Color.js";
+import { Link, useHistory } from "react-router-dom";
+import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles(() =>
   createStyles({
+    appbar: {
+      marginBottom: 70,
+    },
     toolbar: {
       backgroundColor: Colors.Primary,
       minHeight: 75,
@@ -37,7 +42,6 @@ const useStyles = makeStyles(() =>
       float: "left",
     },
     link: {
-      display: "block",
       color: "white",
       textAlign: "center",
       textDecoration: "none",
@@ -49,11 +53,17 @@ const useStyles = makeStyles(() =>
     },
   })
 );
+
 const Header = () => {
   const classes = useStyles();
+
+  const history = useHistory();
+  const getSearch = () => {
+    history.push("/search");
+  };
   return (
     <React.Fragment>
-      <AppBar position="fixed">
+      <AppBar position="fixed" className={classes.appbar}>
         <Toolbar variant="dense" disableGutters className={classes.toolbar}>
           <Grid
             container
@@ -61,34 +71,40 @@ const Header = () => {
             justify="space-between"
             alignItems="center"
           >
-            <Grid container item xs={6}>
-              <Grid item xs={6}>
+            <Grid item xs={6}>
+              <Link to="/">
                 <img
                   className={classes.logo}
                   src={require("../../assets/Logo/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg")}
                   alt="Logo"
                 />
-
-                <Button color="inherit">Movies</Button>
+              </Link>
+              <Link to="/upcomming" className={classes.link}>
+                <Button color="inherit">Upcomming</Button>
+              </Link>
+              <Link to="/trending" className={classes.link}>
+                <Button color="inherit">Trending</Button>
+              </Link>
+              <Link to="/tvshows" className={classes.link}>
                 <Button color="inherit">TV Shows</Button>
-                <Button color="inherit">Peoples</Button>
-              </Grid>
+              </Link>
+              <Link to="/people" className={classes.link}>
+                <Button color="inherit">people</Button>
+              </Link>
             </Grid>
-            <Grid item xs={6}>
-              <div className={classes.search}>
-                <input
-                  type="text"
-                  className={classes.input}
-                  placeholder="Search Movies"
-                />
-                <Button
-                  color="inherit"
-                  style={{ transform: "translateY(50%)" }}
-                >
-                  Login
-                </Button>
-              </div>
-            </Grid>
+          </Grid>
+          <Grid item xs={6} spacing={2}>
+            <div className={classes.search}>
+              <Button color="inherit">Favourites</Button>
+              <Button color="inherit">Login</Button>
+              <span>
+                <SearchIcon
+                  fontSize="large"
+                  onClick={() => getSearch()}
+                  style={{ color: "green", transform: "translateY(40%)" }}
+                ></SearchIcon>
+              </span>
+            </div>
           </Grid>
         </Toolbar>
       </AppBar>

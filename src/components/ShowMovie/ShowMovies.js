@@ -1,6 +1,5 @@
 import React from "react";
 import MoviesPoster from "../MoviesPoster";
-import MoviesDetail from "../MovieDetail";
 import { Grid } from "@material-ui/core";
 
 const ShowMovies = (props) => {
@@ -19,7 +18,7 @@ const ShowMovies = (props) => {
     });
 
   return (
-    <div>
+    <div style={{ margin: "90px" }}>
       <Grid container spacing={3}>
         {renderMovie}
       </Grid>
