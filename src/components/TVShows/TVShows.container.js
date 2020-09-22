@@ -2,9 +2,10 @@ import TVShows from "./TVShows";
 import { FetchTVShowAction } from "../../store/Actions";
 import { connect } from "react-redux";
 
-const mapStateToProps = ({ tvshow }) => {
+const mapStateToProps = ({ tvshow, loading }) => {
   return {
     tvshow,
+    loading,
   };
 };
 

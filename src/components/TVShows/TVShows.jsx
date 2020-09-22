@@ -1,18 +1,26 @@
 import React, { useEffect } from "react";
-import ShowMovies from "../ShowMovie";
+import ShowTV from "../ShowTV";
+import Loading from "../Loader";
+import { Grid } from "@material-ui/core";
 
 const TVShows = (props) => {
-  const { fetchTVShow, tvshow } = props;
-  console.log("From Trendidfsdfdsfng", tvshow);
+  const { fetchTVShow, tvshow, loading } = props;
 
   useEffect(() => {
     fetchTVShow();
   }, []);
-  return (
-    <div style={{ margin: "90px" }}>
-      {tvshow && tvshow.results && <ShowMovies moviesList={tvshow} />}
-    </div>
-  );
+
+  const renderTVShow = () => {
+    console.log("Loading", loading);
+
+    if (loading) {
+      return <Loading />;
+    } else if (tvshow && tvshow.results) {
+      return <ShowTV TVList={tvshow} />;
+    }
+  };
+
+  return <div style={{ margin: "90px" }}>{renderTVShow()}</div>;
 };
 
 export default TVShows;

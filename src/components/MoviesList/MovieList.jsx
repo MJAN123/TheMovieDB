@@ -1,20 +1,23 @@
 import React, { useEffect } from "react";
 import ShowMovies from "../ShowMovie";
-import MovieDetial from "../MovieDetail";
+
+import Loading from "../Loader";
 
 const MovieList = (props) => {
-  const { fetchMovies, moviesList } = props;
+  const { fetchMovies, moviesList, loading } = props;
   useEffect(() => {
     fetchMovies();
   }, []);
 
-  return (
-    <div>
-      {moviesList && moviesList.results && (
-        <ShowMovies moviesList={moviesList} />
-      )}
-    </div>
-  );
+  const renderMovieList = () => {
+    if (loading) {
+      return <Loading />;
+    } else if (moviesList && moviesList.results) {
+      return <ShowMovies moviesList={moviesList} />;
+    }
+  };
+
+  return <div>{renderMovieList()}</div>;
 };
 
 export default MovieList;

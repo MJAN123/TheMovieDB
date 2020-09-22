@@ -2,9 +2,10 @@ import People from "./People";
 import { FetchPeopleAction } from "../../store/Actions";
 import { connect } from "react-redux";
 
-const mapStateToProps = ({ people }) => {
+const mapStateToProps = ({ people, loading }) => {
   return {
     people,
+    loading,
   };
 };
 

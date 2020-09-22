@@ -2,9 +2,10 @@ import Trending from "./Trending";
 import { FetchTredningAction } from "../../store/Actions";
 import { connect } from "react-redux";
 
-const mapStateToProps = ({ trending }) => {
+const mapStateToProps = ({ trending, loading }) => {
   return {
     trending,
+    loading,
   };
 };
 

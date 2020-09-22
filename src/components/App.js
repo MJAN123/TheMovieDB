@@ -9,6 +9,9 @@ import Upcomming from "../components/Upcomming";
 import MovieDetail from "../components/MovieDetail";
 import Footer from "../components/Footer";
 import Search from "../components/Search";
+import PeopleDetail from "./PeopleDetail/ index";
+
+import TVDetail from "../components/TVDetail";
 const App = () => {
   return (
     <React.Fragment>
@@ -26,17 +29,25 @@ const App = () => {
         <Route path="/tvshows">
           <TVShows />
         </Route>
-        <Route path="/people">
+        <Route path="/people" exact>
           <People />
         </Route>
-        <Route path="/detail">
+        <Route path="/movie/detail/:movieId">
           <MovieDetail />
         </Route>
+        <Route path="/people/detail/:peopleId" exact>
+          <PeopleDetail />
+        </Route>
+
+        <Route path="/tvshow/detail/:TVId">
+          <TVDetail />
+        </Route>
+
         <Route path="/search">
           <Search />
         </Route>
-        <Footer />
       </BrowserRouter>
+      <Footer />
     </React.Fragment>
   );
 };

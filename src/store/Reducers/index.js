@@ -2,11 +2,13 @@ import { TYPE } from "../../constants/ActionType";
 
 const INIT_STATE = {
   moviesList: {},
-  movieDetail: {},
   trending: {},
   upcomming: {},
   tvshow: {},
   people: {},
+  movieDetail: {},
+  TVDetail: {},
+  peopleDetail: {},
   loading: false,
   page: 1,
 };
@@ -38,8 +40,21 @@ export default function (state = INIT_STATE, action) {
     case TYPE.FETCH_SUCCESS_PEOPLE:
       return { ...state, loading: false, people: action.payload };
 
-    case TYPE.MOVIE_DETAIL:
-      return { ...state, movieDetail: action.payload };
+    case TYPE.FETCH_MOVIE_DETAIL:
+      return { ...state, loading: true };
+    case TYPE.FETCH_SUCCESS_MOVIE_DETAIL:
+      return { ...state, loading: false, movieDetail: action.payload };
+
+    case TYPE.FETCH_TV_DETAIL:
+      return { ...state, loading: true };
+    case TYPE.FETCH_SUCCESS_TV_DETAIL:
+      return { ...state, oading: false, TVDetail: action.payload };
+
+    case TYPE.FETCH_PEOPLE_DETAIL:
+      return { ...state, loading: true };
+    case TYPE.FETCH_SUCCESS_PEOPLE_DETAIL:
+      return { ...state, loading: false, peopleDetail: action.payload };
+
     default:
       return state;
   }

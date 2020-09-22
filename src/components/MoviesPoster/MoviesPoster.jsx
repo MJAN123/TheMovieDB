@@ -5,14 +5,14 @@ import { ImageBaseUrl } from "../../constants/ImagesURl";
 import { useHistory } from "react-router-dom";
 
 const MoviesPoster = (props) => {
-  const { movies, movieDetail } = props;
-  const history = useHistory();
+  const { movies } = props;
+  // const history = useHistory();
 
-  const moviesClicked = (movie) => {
-    history.push("/detail");
-    console.log("Dispatching Movie Detail Action", movieDetail(movie));
-    movieDetail(movie);
-  };
+  // const moviesClicked = (id) => {
+  //   history.push(`/detail/${id}`);
+  //   console.log("Dispatching Movie Detail Action", fetchDetail(id));
+  //   fetchDetail(id);
+  // };
   return (
     <div className="card">
       <img
@@ -23,7 +23,7 @@ const MoviesPoster = (props) => {
             : movies.profile_path)
         }
         alt={movies.title}
-        onClick={() => moviesClicked(movies)}
+        // onClick={() => moviesClicked(movies.id)}
       />
       <div className=" container">
         <h4>

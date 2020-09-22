@@ -3,21 +3,24 @@ import MoviesPoster from "../MoviesPoster";
 import { Grid } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 
-const ShowMovies = (props) => {
-  const { moviesList, fetchShowMovie } = props;
+const ShowTV = (props) => {
+  debugger;
+  const { TVList, TVDetail } = props;
+
   const history = useHistory();
-  const onMovieClick = (id) => {
-    history.push(`/movie/detail/${id}`);
-    fetchShowMovie(id);
+  const TVClicked = (id) => {
+    history.push(`/tvshow/detail/${id}`);
+    console.log("Dispatching Tv Show Detail Action", TVDetail(id));
+    TVDetail(id);
   };
 
   const renderMovie =
-    moviesList &&
-    moviesList.results.length > 0 &&
-    moviesList.results.map((list) => {
+    TVList &&
+    TVList.results.length > 0 &&
+    TVList.results.map((list) => {
       return (
         <React.Fragment key={list.id}>
-          <Grid item xs={6} sm={3} onClick={() => onMovieClick(list.id)}>
+          <Grid item xs={6} sm={3} onClick={() => TVClicked(list.id)}>
             <MoviesPoster movies={list} />
           </Grid>
         </React.Fragment>
@@ -26,7 +29,7 @@ const ShowMovies = (props) => {
 
   return (
     <div style={{ margin: "90px" }}>
-      <h1> List Of Movies</h1>
+      <h1> TV Shows</h1>
       <Grid container spacing={3}>
         {renderMovie}
       </Grid>
@@ -34,4 +37,4 @@ const ShowMovies = (props) => {
   );
 };
 
-export default ShowMovies;
+export default ShowTV;

@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const KEY = "a5df7ecf7b3ada2b2c3a507abe9cd4a0";
 
 const URL_MOVIES = "https://api.themoviedb.org/3/discover/movie?";
@@ -7,6 +6,9 @@ const URL_TRENDING = "https://api.themoviedb.org/3/trending/all/day?";
 const URL_UPCOMING = "https://api.themoviedb.org/3/movie/upcoming?";
 const URL_TVSHOW = "https://api.themoviedb.org/3/tv/popular?";
 const URL_PEOPLE = "https://api.themoviedb.org/3/person/popular?";
+const URL_MOVIE_DETAIL = "https://api.themoviedb.org/3/movie/";
+const URL_TV_DETAIL = "https://api.themoviedb.org/3/tv/";
+const URL_PEOPLE_DETAIL = "https://api.themoviedb.org/3/person/";
 
 export const getMovies = () => {
   return axios.get(`${URL_MOVIES}api_key=${KEY}`).then((res) => {
@@ -36,4 +38,26 @@ export const getPeople = () => {
   return axios.get(`${URL_PEOPLE}api_key=${KEY}`).then((res) => {
     return res.data;
   });
+};
+
+export const getMovieDetail = (id) => {
+  console.log("Movie Id from ap", id);
+  return axios.get(`${URL_MOVIE_DETAIL + id}?api_key=${KEY}`).then((res) => {
+    return res.data;
+  });
+};
+
+export const getTVDetail = (TVId) => {
+  return axios.get(`${URL_TV_DETAIL + TVId}?api_key=${KEY}`).then((res) => {
+    return res.data;
+  });
+};
+
+export const getPeopleDetail = (PeopleId) => {
+  console.log("People Id from api", PeopleId);
+  return axios
+    .get(`${URL_PEOPLE_DETAIL + PeopleId}?api_key=${KEY}`)
+    .then((res) => {
+      return res.data;
+    });
 };

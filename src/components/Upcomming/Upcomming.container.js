@@ -2,9 +2,10 @@ import Upcomming from "./Upcomming";
 import { FetchUpcommingAction } from "../../store/Actions";
 import { connect } from "react-redux";
 
-const mapStateToProps = ({ upcomming }) => {
+const mapStateToProps = ({ upcomming, loading }) => {
   return {
     upcomming,
+    loading,
   };
 };
 

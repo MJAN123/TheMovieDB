@@ -1,3 +1,3 @@
-import ShowMovie from "./ShowMovies";
+import ShowMovie from "./ShowMovies.container";
 
 export default ShowMovie;

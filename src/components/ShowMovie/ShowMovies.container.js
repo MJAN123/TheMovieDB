@@ -1,17 +1,11 @@
 import { connect } from "react-redux";
-import { MovieDetailAction } from "../../store/Actions";
+import { FetchMovieDetailAction } from "../../store/Actions";
 import ShowMovies from "./ShowMovies";
-
-const mapStateToProps = (state) => {
-  return {
-    movieDetail: state.movieDetail,
-  };
-};
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    movieDetail: () => dispatch(MovieDetailAction()),
+    fetchShowMovie: (id) => dispatch(FetchMovieDetailAction(id)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShowMovies);
+export default connect(null, mapDispatchToProps)(ShowMovies);

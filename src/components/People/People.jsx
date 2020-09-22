@@ -1,19 +1,25 @@
 import React, { useEffect } from "react";
-import ShowMovies from "../ShowMovie";
-
+import ShowPeople from "../ShowPeople";
+import Loading from "../Loader";
 const People = (props) => {
-  const { fetchPeople, people } = props;
-  console.log("From People", people);
+  const { fetchPeople, people, loading } = props;
 
   useEffect(() => {
     console.log("Dispatching People action ", fetchPeople());
     fetchPeople();
   }, []);
-  return (
-    <div style={{ margin: "90px" }}>
-      {people && people.results && <ShowMovies moviesList={people} />}
-    </div>
-  );
+
+  const renderPeople = () => {
+    console.log("Loading", loading);
+
+    if (loading) {
+      return <Loading />;
+    } else if (people && people.results) {
+      return <ShowPeople peopleList={people} />;
+    }
+  };
+
+  return <div style={{ margin: "90px" }}>{renderPeople()}</div>;
 };
 
 export default People;

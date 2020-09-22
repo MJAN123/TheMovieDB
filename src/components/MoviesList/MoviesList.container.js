@@ -7,10 +7,11 @@ const mapDispatchToProps = (dispatch) => {
     fetchMovies: () => dispatch(FetchMoviesAction()),
   };
 };
-const mapStateToProps = ({ moviesList, movieDetail }) => {
+const mapStateToProps = ({ moviesList, movieDetail, loading }) => {
   return {
     moviesList,
     movieDetail,
+    loading,
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);
