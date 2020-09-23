@@ -9,15 +9,19 @@ const MovieList = (props) => {
     fetchMovies();
   }, []);
 
-  const renderMovieList = () => {
-    if (loading) {
-      return <Loading />;
-    } else if (moviesList && moviesList.results) {
-      return <ShowMovies moviesList={moviesList} />;
-    }
-  };
+  // const renderMovieList = () => {
 
-  return <div>{renderMovieList()}</div>;
+  // };
+  if (loading) {
+    return <Loading />;
+  } else debugger;
+  return (
+    <div>
+      {moviesList && moviesList.results && moviesList.results.length && (
+        <ShowMovies moviesList={moviesList} />
+      )}
+    </div>
+  );
 };
 
 export default MovieList;

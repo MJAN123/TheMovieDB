@@ -6,21 +6,17 @@ import { useHistory } from "react-router-dom";
 
 const MoviesPoster = (props) => {
   const { movies } = props;
-  // const history = useHistory();
 
-  // const moviesClicked = (id) => {
-  //   history.push(`/detail/${id}`);
-  //   console.log("Dispatching Movie Detail Action", fetchDetail(id));
-  //   fetchDetail(id);
-  // };
   return (
     <div className="card">
       <img
         src={
-          ImageBaseUrl +
-          (movies.poster_path != null
-            ? movies.poster_path
-            : movies.profile_path)
+          (ImageBaseUrl + movies.poster_path).includes(".jpg") ||
+          (ImageBaseUrl + movies.profile_path).includes(".jpg") === true
+            ? movies.poster_path != null
+              ? ImageBaseUrl + movies.poster_path
+              : ImageBaseUrl + movies.profile_path
+            : require("../../assets/Images/download.png")
         }
         alt={movies.title}
         // onClick={() => moviesClicked(movies.id)}

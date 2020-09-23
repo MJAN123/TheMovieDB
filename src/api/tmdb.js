@@ -9,6 +9,7 @@ const URL_PEOPLE = "https://api.themoviedb.org/3/person/popular?";
 const URL_MOVIE_DETAIL = "https://api.themoviedb.org/3/movie/";
 const URL_TV_DETAIL = "https://api.themoviedb.org/3/tv/";
 const URL_PEOPLE_DETAIL = "https://api.themoviedb.org/3/person/";
+const URL_SEARCH = "https://api.themoviedb.org/3/search/movie?";
 
 export const getMovies = () => {
   return axios.get(`${URL_MOVIES}api_key=${KEY}`).then((res) => {
@@ -60,4 +61,12 @@ export const getPeopleDetail = (PeopleId) => {
     .then((res) => {
       return res.data;
     });
+};
+
+export const getSearchResult = (term) => {
+  console.log("Search from api", term);
+
+  return axios.get(`${URL_SEARCH}api_key=${KEY}&query=${term}`).then((res) => {
+    return res.data;
+  });
 };

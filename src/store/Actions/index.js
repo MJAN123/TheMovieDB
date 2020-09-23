@@ -7,3 +7,4 @@ export * from "./fetchPeopleAction";
 export * from "./fetchMovieDetailAction";
 export * from "./fetchPeopleDetailAction";
 export * from "./fetchTVDetailAction";
+export * from "./fetchSearchAction";

@@ -1,4 +1,4 @@
-import { all, call, put, takeEvery } from "redux-saga/effects";
+import { all, call, put, takeEvery, takeLatest } from "redux-saga/effects";
 import {
   FetchMoviesSuccessAction,
   FetchTrendingSuccessAction,
@@ -8,6 +8,7 @@ import {
   FetchMovieDetailSuccessAction,
   FetchPeopleDetailSuccessAction,
   FetchTVDetailSuccessAction,
+  FetchSearchSuccessAction,
 } from "../Actions";
 import { TYPE } from "../../constants/ActionType";
 import {
@@ -19,11 +20,11 @@ import {
   getMovieDetail,
   getPeopleDetail,
   getTVDetail,
+  getSearchResult,
 } from "../../api";
 
 function* fetchMovies() {
   const res = yield call(getMovies);
-
   yield put(FetchMoviesSuccessAction(res));
 }
 
@@ -83,6 +84,15 @@ function* fetchPeopleDetail({ payload }) {
   yield put(FetchPeopleDetailSuccessAction(peopleDetail));
 }
 
+function* fetchSearch({ payload }) {
+  console.log("Getting Search Term woker saga ", payload);
+
+  const searchResult = yield call(getSearchResult, payload);
+  console.log("Getting Response from search Result", searchResult);
+
+  yield put(FetchSearchSuccessAction(searchResult));
+}
+
 export function* rootSaga() {
   console.log("From Root Saga");
   yield all([
@@ -94,5 +104,6 @@ export function* rootSaga() {
     takeEvery(TYPE.FETCH_MOVIE_DETAIL, fetchMovieDetail),
     takeEvery(TYPE.FETCH_TV_DETAIL, fetchTVDetail),
     takeEvery(TYPE.FETCH_PEOPLE_DETAIL, fetchPeopleDetail),
+    takeEvery(TYPE.FETCH_SEARCH_RESULT, fetchSearch),
   ]);
 }

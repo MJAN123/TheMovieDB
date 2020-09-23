@@ -7,10 +7,14 @@ const mapDispatchToProps = (dispatch) => {
     fetchMovies: () => dispatch(FetchMoviesAction()),
   };
 };
-const mapStateToProps = ({ moviesList, movieDetail, loading }) => {
+const mapStateToProps = (state) => {
+  const moviesList = state.get("moviesList");
+
+  const loading = state.get("loading");
+
+  //const movieDetail = state.get("movieDetail");
   return {
     moviesList,
-    movieDetail,
     loading,
   };
 };

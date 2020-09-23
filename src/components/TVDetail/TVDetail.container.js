@@ -8,7 +8,8 @@ const mapDispatchToProps = (dispatch) => {
     getTVDetial: (TVId) => dispatch(FetchTVDetailAction(TVId)),
   };
 };
-const mapStateToProps = ({ TVDetail }) => {
+const mapStateToProps = (state) => {
+  const TVDetail = state.get("TVDetail");
   return {
     TVDetail,
   };

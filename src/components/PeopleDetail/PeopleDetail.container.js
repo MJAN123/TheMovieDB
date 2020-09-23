@@ -8,7 +8,8 @@ const mapDispatchToProps = (dispatch) => {
     getPeopleDetial: (peopleId) => dispatch(FetchPeopleDetailAction(peopleId)),
   };
 };
-const mapStateToProps = ({ peopleDetail }) => {
+const mapStateToProps = (state) => {
+  const peopleDetail = state.get("peopleDetail");
   return {
     peopleDetail,
   };
