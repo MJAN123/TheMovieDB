@@ -18,7 +18,13 @@ const ShowPeople = (props) => {
     peopleList.results.map((list) => {
       return (
         <React.Fragment key={list.id}>
-          <Grid item xs={6} sm={3} onClick={() => peopleClicked(list.id)}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            lg={3}
+            onClick={() => peopleClicked(list.id)}
+          >
             <MoviesPoster movies={list} />
           </Grid>
         </React.Fragment>
@@ -26,7 +32,7 @@ const ShowPeople = (props) => {
     });
 
   return (
-    <div style={{ margin: "90px" }}>
+    <div>
       <h1> Popular People</h1>
       <Grid container spacing={3}>
         {renderMovie}

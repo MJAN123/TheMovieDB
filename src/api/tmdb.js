@@ -10,6 +10,8 @@ const URL_MOVIE_DETAIL = "https://api.themoviedb.org/3/movie/";
 const URL_TV_DETAIL = "https://api.themoviedb.org/3/tv/";
 const URL_PEOPLE_DETAIL = "https://api.themoviedb.org/3/person/";
 const URL_SEARCH = "https://api.themoviedb.org/3/search/movie?";
+const URL_REVIEW = "https://api.themoviedb.org/3/movie/";
+const URL_TVREVIEW = "https://api.themoviedb.org/3/tv/";
 
 export const getMovies = () => {
   return axios.get(`${URL_MOVIES}api_key=${KEY}`).then((res) => {
@@ -49,6 +51,7 @@ export const getMovieDetail = (id) => {
 };
 
 export const getTVDetail = (TVId) => {
+  console.log("TV ", TVId);
   return axios.get(`${URL_TV_DETAIL + TVId}?api_key=${KEY}`).then((res) => {
     return res.data;
   });
@@ -69,4 +72,22 @@ export const getSearchResult = (term) => {
   return axios.get(`${URL_SEARCH}api_key=${KEY}&query=${term}`).then((res) => {
     return res.data;
   });
+};
+
+export const getReview = (id) => {
+  console.log("Review from api", id);
+
+  return axios.get(`${URL_REVIEW + id}/reviews?api_key=${KEY}`).then((res) => {
+    return res.data;
+  });
+};
+
+export const getTVReview = (id) => {
+  console.log("Review from api", id);
+
+  return axios
+    .get(`${URL_TVREVIEW + id}/reviews?api_key=${KEY}`)
+    .then((res) => {
+      return res.data;
+    });
 };

@@ -1,46 +1,72 @@
 import React, { useEffect } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Card, CardContent } from "@material-ui/core";
+import {
+  Language,
+  LocalAtm,
+  NewReleases,
+  Stars,
+  ThumbUpAlt,
+} from "@material-ui/icons";
 import { ImageBaseUrl } from "../../constants/ImagesURl";
+import "./style.css";
 
-const MovieDetail = (props) => {
+const PeopleDetail = (props) => {
+  console.log(" From Detail", props.match.params.peopeId);
   const { getPeopleDetial, peopleDetail } = props;
-  console.log("From People Detail", peopleDetail);
   useEffect(() => {
     getPeopleDetial(props.match.params.peopleId);
   }, []);
 
   return (
-    <div className="detail" style={{ marginTop: "70px" }}>
-      <Grid container spacing={4}>
-        <Grid item xs={4}>
-          <img src={ImageBaseUrl + peopleDetail.profile_path} />
-        </Grid>
-        <Grid item xs={8}>
-          <div className="container">
-            <h1>{peopleDetail.title}</h1>
-            <details>
-              <summary>Relase Date</summary>
-              <p>{peopleDetail.release_date}</p>
-            </details>
-            <details>
-              <summary>popularity</summary>
-              <p>{peopleDetail.popularity}</p>
-            </details>
-            <details>
-              <summary>Rating</summary>
-              <p>{peopleDetail.vote_average}</p>
-            </details>
-            <details>
-              <summary>original language</summary>
-              <p>{peopleDetail.original_language}</p>
-            </details>
-            <h1>Overview</h1>
-            <p>{peopleDetail.overview}</p>
+    <div className="container">
+      <Grid container spacing={1} alignItems="center" justify="center">
+        <Grid item xs={12} md={4}>
+          <h1>Poster</h1>
+          <div className="card">
+            <img
+              src={ImageBaseUrl + peopleDetail.profile_path}
+              alt={peopleDetail.name}
+              // onClick={() => moviesClicked(movieDetail.id)}
+            />
           </div>
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <h1>Detail</h1>
+          <Card>
+            <CardContent>
+              <h1>Name: {peopleDetail.name}</h1>
+              <p>
+                <b>BIOGRAPHY: </b> {peopleDetail.biography}
+              </p>
+
+              <h3>
+                <b>KNOWN AS A </b>
+                <Stars />
+                <span> {peopleDetail.known_for_department}</span>
+              </h3>
+
+              <h3>
+                <b>POPULARITY </b>
+                <ThumbUpAlt /> <span> {peopleDetail.popularity}</span>
+              </h3>
+              <h3>
+                <b>DATE OF BIRTH </b>
+                <NewReleases /> <span> {peopleDetail.birthday}</span>
+              </h3>
+              <h3>
+                <b>PLACE OF BIRTH </b>
+                <Language />
+                <span>{peopleDetail.place_of_birth}</span>
+              </h3>
+
+              <br />
+              <br />
+            </CardContent>
+          </Card>
         </Grid>
       </Grid>
     </div>
   );
 };
 
-export default MovieDetail;
+export default PeopleDetail;

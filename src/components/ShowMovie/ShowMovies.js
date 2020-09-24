@@ -2,6 +2,7 @@ import React from "react";
 import MoviesPoster from "../MoviesPoster";
 import { Grid } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import "./style.css";
 
 const ShowMovies = (props) => {
   const { moviesList, fetchShowMovie } = props;
@@ -17,7 +18,13 @@ const ShowMovies = (props) => {
     moviesList.results.map((list) => {
       return (
         <React.Fragment key={list.id}>
-          <Grid item xs={6} sm={3} onClick={() => onMovieClick(list.id)}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            lg={3}
+            onClick={() => onMovieClick(list.id)}
+          >
             <MoviesPoster movies={list} />
           </Grid>
         </React.Fragment>
@@ -25,8 +32,8 @@ const ShowMovies = (props) => {
     });
 
   return (
-    <div style={{ margin: "90px" }}>
-      <h1> List Of Movies</h1>
+    <div>
+      <h1 className="move"> List Of Movies</h1>
       <Grid container spacing={3}>
         {renderMovie}
       </Grid>

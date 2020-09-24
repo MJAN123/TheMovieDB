@@ -11,6 +11,8 @@ const INIT_STATE = fromJS({
   TVDetail: {},
   peopleDetail: {},
   search: {},
+  review: {},
+  TVReview: {},
   loading: false,
   page: 1,
 });
@@ -62,6 +64,16 @@ export default function (state = INIT_STATE, action) {
       return state.set("loading", true);
     case TYPE.FETCH_SUCCESS_SEARCH_RESULT:
       return state.set("loading", false).set("search", action.payload);
+
+    case TYPE.FETCH_REVIEW:
+      return state.set("loading", true);
+    case TYPE.FETCH_SUCCESS_REVIEW:
+      return state.set("loading", false).set("review", action.payload);
+
+    case TYPE.FETCH_TVREVIEW:
+      return state.set("loading", true);
+    case TYPE.FETCH_SUCCESS_TVREVIEW:
+      return state.set("loading", false).set("TVReview", action.payload);
 
     default:
       return state;

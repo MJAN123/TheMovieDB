@@ -8,3 +8,5 @@ export * from "./fetchMovieDetailAction";
 export * from "./fetchPeopleDetailAction";
 export * from "./fetchTVDetailAction";
 export * from "./fetchSearchAction";
+export * from "./fetchReviewAction";
+export * from "./fetchTVReviewAction";

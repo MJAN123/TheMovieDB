@@ -1,0 +1,15 @@
+.move {
+  animation-name: moveRight;
+  animation-delay: 1s;
+}
+@keyframes moveRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

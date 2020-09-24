@@ -46,8 +46,8 @@ const App = () => {
         <Route path="/search">
           <Search />
         </Route>
+        <Footer />
       </BrowserRouter>
-      <Footer />
     </React.Fragment>
   );
 };

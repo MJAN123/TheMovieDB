@@ -20,7 +20,7 @@ const ShowTV = (props) => {
     TVList.results.map((list) => {
       return (
         <React.Fragment key={list.id}>
-          <Grid item xs={6} sm={3} onClick={() => TVClicked(list.id)}>
+          <Grid item xs={12} md={6} lg={3} onClick={() => TVClicked(list.id)}>
             <MoviesPoster movies={list} />
           </Grid>
         </React.Fragment>
@@ -28,7 +28,7 @@ const ShowTV = (props) => {
     });
 
   return (
-    <div style={{ margin: "90px" }}>
+    <div style={{ marginTop: "90px" }}>
       <h1> TV Shows</h1>
       <Grid container spacing={3}>
         {renderMovie}

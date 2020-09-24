@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import ShowMovies from "../ShowMovie";
-
+import Jumbotron from "../Jumbotron";
+import "./style.css";
 import Loading from "../Loader";
 
 const MovieList = (props) => {
@@ -14,14 +15,15 @@ const MovieList = (props) => {
   // };
   if (loading) {
     return <Loading />;
-  } else debugger;
-  return (
-    <div>
-      {moviesList && moviesList.results && moviesList.results.length && (
-        <ShowMovies moviesList={moviesList} />
-      )}
-    </div>
-  );
+  } else
+    return (
+      <div className=" container-uper">
+        <Jumbotron />
+        {moviesList && moviesList.results && moviesList.results.length && (
+          <ShowMovies moviesList={moviesList} />
+        )}
+      </div>
+    );
 };
 
 export default MovieList;

@@ -1,0 +1,50 @@
+.jumbotron {
+  height: 25vh;
+  background-image: linear-gradient(
+      to right,
+      rgba(8, 22, 37, 0.8),
+      rgba(8, 22, 37, 0.4)
+    ),
+    url("../../assets/Images/m1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+}
+.welcome {
+  font-size: 44px;
+  animation-name: movieRight;
+  animation-duration: 1s;
+}
+
+.pera {
+  font-size: 30px;
+  animation-name: movieLeft;
+  animation-duration: 1s;
+}
+
+@keyframes movieRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes movieLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

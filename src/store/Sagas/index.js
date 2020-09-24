@@ -9,6 +9,8 @@ import {
   FetchPeopleDetailSuccessAction,
   FetchTVDetailSuccessAction,
   FetchSearchSuccessAction,
+  FetchReviewSuccessAction,
+  FetchTVReviewSuccessAction,
 } from "../Actions";
 import { TYPE } from "../../constants/ActionType";
 import {
@@ -21,6 +23,8 @@ import {
   getPeopleDetail,
   getTVDetail,
   getSearchResult,
+  getReview,
+  getTVReview,
 } from "../../api";
 
 function* fetchMovies() {
@@ -93,6 +97,24 @@ function* fetchSearch({ payload }) {
   yield put(FetchSearchSuccessAction(searchResult));
 }
 
+function* fetchReview({ payload }) {
+  console.log("Getting Review woker saga ", payload);
+
+  const review = yield call(getReview, payload);
+  console.log("Getting Response from search Result", review);
+
+  yield put(FetchReviewSuccessAction(review));
+}
+
+function* fetchTVReview({ payload }) {
+  console.log("Getting TV Review woker saga ", payload);
+
+  const TVReview = yield call(getTVReview, payload);
+  console.log("Getting Response from TVReview Result", TVReview);
+
+  yield put(FetchTVReviewSuccessAction(TVReview));
+}
+
 export function* rootSaga() {
   console.log("From Root Saga");
   yield all([
@@ -105,5 +127,7 @@ export function* rootSaga() {
     takeEvery(TYPE.FETCH_TV_DETAIL, fetchTVDetail),
     takeEvery(TYPE.FETCH_PEOPLE_DETAIL, fetchPeopleDetail),
     takeEvery(TYPE.FETCH_SEARCH_RESULT, fetchSearch),
+    takeEvery(TYPE.FETCH_REVIEW, fetchReview),
+    takeEvery(TYPE.FETCH_TVREVIEW, fetchTVReview),
   ]);
 }

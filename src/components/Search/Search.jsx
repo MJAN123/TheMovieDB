@@ -25,13 +25,15 @@ const Search = (props) => {
 
   return (
     <div className="search">
-      <DebounceInput
-        placeholder=" Search Term"
-        debounceTimeout={1000}
-        onChange={(event) => setSearchTerm(event.target.value)}
-      />
+      <div className="search-result">
+        <DebounceInput
+          placeholder=" Search Term"
+          debounceTimeout={1000}
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
 
-      <div>{renderSearchList()}</div>
+        <div>{renderSearchList()}</div>
+      </div>
     </div>
   );
 };

@@ -16,11 +16,15 @@ const TVShows = (props) => {
     if (loading) {
       return <Loading />;
     } else if (tvshow && tvshow.results) {
-      return <ShowTV TVList={tvshow} />;
+      return (
+        <div style={{ margin: "90px" }}>
+          <ShowTV TVList={tvshow} />;
+        </div>
+      );
     }
   };
 
-  return <div style={{ margin: "90px" }}>{renderTVShow()}</div>;
+  return <div>{renderTVShow()}</div>;
 };
 
 export default TVShows;

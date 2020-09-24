@@ -10,5 +10,9 @@ input {
 .search {
   text-align: center;
   margin-top: 90px;
+  /* height: 100vh; */
+}
+.search-result {
   height: 100%;
+  width: 100%;
 }

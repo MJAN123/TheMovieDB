@@ -49,7 +49,7 @@ const useStyles = makeStyles(() =>
     logo: {
       paddingLeft: "15px",
       width: "150px",
-      transform: "translateY(50%)",
+      transform: "translateY(30%)",
     },
   })
 );
@@ -71,7 +71,7 @@ const Header = () => {
             justify="space-between"
             alignItems="center"
           >
-            <Grid item xs={6}>
+            <Grid item xs={12} md={2}>
               <Link to="/">
                 <img
                   className={classes.logo}
@@ -79,6 +79,8 @@ const Header = () => {
                   alt="Logo"
                 />
               </Link>
+            </Grid>
+            <Grid item xs={10} md={8}>
               <Link to="/upcomming" className={classes.link}>
                 <Button color="inherit">Upcomming</Button>
               </Link>
@@ -92,19 +94,17 @@ const Header = () => {
                 <Button color="inherit">people</Button>
               </Link>
             </Grid>
-          </Grid>
-          <Grid item xs={6} spacing={2}>
-            <div className={classes.search}>
-              <Button color="inherit">Favourites</Button>
-              <Button color="inherit">Login</Button>
-              <span>
-                <SearchIcon
-                  fontSize="large"
-                  onClick={() => getSearch()}
-                  style={{ color: "green", transform: "translateY(40%)" }}
-                ></SearchIcon>
-              </span>
-            </div>
+            <Grid item xs={2} md={2} spacing={2}>
+              <div className={classes.search}>
+                <span>
+                  <SearchIcon
+                    fontSize="large"
+                    onClick={() => getSearch()}
+                    style={{ color: "green", transform: "translateY(40%)" }}
+                  ></SearchIcon>
+                </span>
+              </div>
+            </Grid>
           </Grid>
         </Toolbar>
       </AppBar>

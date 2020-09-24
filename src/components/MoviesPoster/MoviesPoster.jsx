@@ -10,6 +10,7 @@ const MoviesPoster = (props) => {
   return (
     <div className="card">
       <img
+        className="img"
         src={
           (ImageBaseUrl + movies.poster_path).includes(".jpg") ||
           (ImageBaseUrl + movies.profile_path).includes(".jpg") === true
