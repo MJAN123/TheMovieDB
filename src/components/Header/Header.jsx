@@ -94,17 +94,6 @@ const Header = () => {
                 <Button color="inherit">people</Button>
               </Link>
             </Grid>
-            <Grid item xs={2} md={2} spacing={2}>
-              <div className={classes.search}>
-                <span>
-                  <SearchIcon
-                    fontSize="large"
-                    onClick={() => getSearch()}
-                    style={{ color: "green", transform: "translateY(40%)" }}
-                  ></SearchIcon>
-                </span>
-              </div>
-            </Grid>
           </Grid>
         </Toolbar>
       </AppBar>

@@ -3,10 +3,9 @@ import React from "react";
 import "./style.css";
 import { ImageBaseUrl } from "../../constants/ImagesURl";
 import { useHistory } from "react-router-dom";
-
+import RatingProgressBar from '../common/RatingProgressBar'
 const MoviesPoster = (props) => {
   const { movies } = props;
-
   return (
     <div className="card">
       <img
@@ -22,17 +21,21 @@ const MoviesPoster = (props) => {
         alt={movies.title}
         // onClick={() => moviesClicked(movies.id)}
       />
-      <div className=" container">
-        <h4>
-          <b>
+      <div className="title-container">
+      <div className='progress-bar-container' >
+        <RatingProgressBar value={movies.vote_average * 10}/>
+      </div>
+          <div className="title">
+
             {movies.title != null
               ? movies.title
               : movies.name != null
               ? movies.name
               : "No Title"}
-          </b>
-        </h4>
-        <p> {movies.vote_average}</p>
+        </div>
+        <div className="release-date">
+          12 nov 2021
+        </div>
       </div>
     </div>
   );

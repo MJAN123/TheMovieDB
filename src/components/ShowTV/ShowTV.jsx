@@ -30,7 +30,7 @@ const ShowTV = (props) => {
   return (
     <div style={{ marginTop: "90px" }}>
       <h1> TV Shows</h1>
-      <Grid container spacing={3}>
+      <Grid container spacing={1}>
         {renderMovie}
       </Grid>
     </div>

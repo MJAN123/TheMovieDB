@@ -34,7 +34,7 @@ const ShowMovies = (props) => {
   return (
     <div>
       <h1 className="move"> List Of Movies</h1>
-      <Grid container spacing={3}>
+      <Grid container spacing={1}>
         {renderMovie}
       </Grid>
     </div>

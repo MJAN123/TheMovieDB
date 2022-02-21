@@ -21,7 +21,7 @@ const PeopleDetail = (props) => {
     <div className="container">
       <Grid container spacing={1} alignItems="center" justify="center">
         <Grid item xs={12} md={4}>
-          <h1>Poster</h1>
+          <h1>People Detail</h1>
           <div className="card">
             <img
               src={ImageBaseUrl + peopleDetail.profile_path}
@@ -31,7 +31,7 @@ const PeopleDetail = (props) => {
           </div>
         </Grid>
         <Grid item xs={12} md={8}>
-          <h1>Detail</h1>
+          <h1></h1>
           <Card>
             <CardContent>
               <h1>Name: {peopleDetail.name}</h1>
